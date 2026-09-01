@@ -1,0 +1,11 @@
+dataset:
+  name: "NCI1"
+  root: "/home/phd/datasets/"
+  split_type: "stratified"
+  batch_size: 128
+  num_classes: 2
+  task: "binary_classification"
+  metric: "accuracy"
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15

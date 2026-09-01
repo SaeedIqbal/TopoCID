@@ -1,0 +1,9 @@
+dataset:
+  name: "DrugOOD-IC50"
+  root: "/home/phd/datasets/"
+  split_type: "scaffold"
+  batch_size: 128
+  num_classes: 2
+  task: "binary_classification"
+  metric: "roc_auc"
+  

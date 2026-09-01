@@ -1,0 +1,55 @@
+model:
+  name: "TopoCID"
+  
+  # Shared GNN Backbone
+  backbone:
+    type: "GIN"
+    hidden_dim: 64
+    num_layers: 3
+    dropout: 0.0
+    train_eps: true
+
+  # Differentiable Topological Causal Projection (TCP)
+  tcp:
+    topo_dim: 64
+    max_persistence: 5.0
+    softness: 20.0
+    max_degree: 3
+
+  # Structure-Preserving Counterfactual Generation (SPCG)
+  spcg:
+    num_steps: 50
+    beta_min: 0.1
+    beta_max: 20.0
+    max_valency: 4.0
+    delta: 1.0e-5
+
+  # Topological Contrastive Disentanglement (TCD)
+  tcd:
+    hidden_dim: 64
+    temperature: 0.07
+    critic_layers: 2
+
+  # Environment Encoder & Classifier
+  env_encoder:
+    env_dim: 32
+  classifier:
+    num_classes: 2  # Dynamically overridden by dataset config
+
+trainer:
+  # Alternating Optimization Hyperparameters
+  lr_descent: 1.0e-3
+  lr_ascent: 1.0e-3
+  weight_decay: 1.0e-5
+  critic_update_steps: 1
+  
+  # Loss Weights (L_total = L_sup + lambda_cf*L_cf + lambda_tcd*L_tcd + lambda_mi*L_mi)
+  lambda_cf: 1.0
+  lambda_tcd: 0.5
+  lambda_mi: 0.1
+  
+  # Scheduler & Early Stopping
+  warmup_steps: 10
+  max_steps: 5000
+  patience: 10
+  tolerance: 1.0e-4

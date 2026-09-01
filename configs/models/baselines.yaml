@@ -1,0 +1,112 @@
+baselines:
+  # ==========================================
+  # Empirical Risk Minimization (ERM)
+  # ==========================================
+  GCN:
+    backbone: "GCN"
+    hidden_dim: 64
+    num_layers: 3
+    lr: 1.0e-3
+    weight_decay: 1.0e-5
+    dropout: 0.0
+
+  GAT:
+    backbone: "GAT"
+    hidden_dim: 16
+    num_layers: 3
+    heads: 4
+    lr: 1.0e-3
+    weight_decay: 1.0e-5
+    dropout: 0.0
+
+  # ==========================================
+  # Invariant Learning
+  # ==========================================
+  IRM:
+    backbone: "GIN"
+    hidden_dim: 64
+    num_layers: 3
+    lr: 1.0e-3
+    penalty_weight: 1.0
+    penalty_anneal_iters: 500
+
+  V-REx:
+    backbone: "GIN"
+    hidden_dim: 64
+    num_layers: 3
+    lr: 1.0e-3
+    penalty_weight: 10.0
+    penalty_anneal_iters: 500
+
+  # ==========================================
+  # Subgraph Rationalization
+  # ==========================================
+  CAL:
+    backbone: "GIN"
+    hidden_dim: 64
+    num_layers: 3
+    lr: 1.0e-3
+    penalty_weight: 1.0
+    mask_temperature: 0.1
+
+  CIGA:
+    backbone: "GIN"
+    hidden_dim: 64
+    num_layers: 3
+    lr: 1.0e-3
+    ratio: 0.8
+    penalty_weight: 1.0
+
+  DIR:
+    backbone: "GIN"
+    hidden_dim: 64
+    num_layers: 3
+    lr: 1.0e-3
+    ratio: 0.8
+    penalty_weight: 1.0
+
+  GSAT:
+    backbone: "GIN"
+    hidden_dim: 64
+    num_layers: 3
+    lr: 1.0e-3
+    penalty_weight: 1.0
+    mask_temperature: 0.1
+
+  PISA:
+    backbone: "GIN"
+    hidden_dim: 64
+    num_layers: 3
+    lr: 1.0e-3
+    penalty_weight: 1.0
+    prioritization_weight: 0.5
+
+  # ==========================================
+  # Generative / Counterfactual
+  # ==========================================
+  GI-Graph:
+    backbone: "GIN"
+    hidden_dim: 64
+    num_layers: 3
+    lr: 1.0e-3
+    diffusion_steps: 100
+    penalty_weight: 1.0
+
+  C2R:
+    backbone: "GIN"
+    hidden_dim: 64
+    num_layers: 3
+    lr: 1.0e-3
+    penalty_weight: 1.0
+    mask_temperature: 0.1
+
+  # ==========================================
+  # Target Baseline (Latent Mixing)
+  # ==========================================
+  GCCDL:
+    backbone: "GIN"
+    hidden_dim: 64
+    num_layers: 3
+    lr: 1.0e-3
+    penalty_weight: 1.0
+    latent_mixing_weight: 1.0
