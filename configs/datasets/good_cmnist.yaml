@@ -1,0 +1,9 @@
+dataset:
+  name: "GOOD-CMNIST"
+  root: "/home/phd/datasets/"
+  split_type: "motif"
+  batch_size: 256
+  num_classes: 10
+  task: "multi_class_classification"
+  metric: "accuracy"
+  
